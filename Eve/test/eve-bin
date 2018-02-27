@@ -1,0 +1,7 @@
+#!/usr/bin/env python2.7
+
+# set server timezone in UTC before time module imported
+__import__('os').environ['TZ'] = 'UTC'
+
+if __name__ == "__main__":
+    eve.cli.main()

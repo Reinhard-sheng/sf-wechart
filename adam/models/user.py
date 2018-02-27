@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from oodo import api,fields,models
 
 class AdamUser(models.Model):
