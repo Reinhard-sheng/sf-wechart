@@ -1,0 +1,4 @@
+#/bin/sh
+a="hello word"
+echo "A is"
+echo $a
