@@ -85,3 +85,12 @@ func = A().check
 print func
 
 func(1,2,3)
+
+
+def func(
+	report_xml_id='sale_export_customs_declaration_items_printout.'
+	'sale_export_customs_declaration_items_printout_py3o'):
+	print report_xml_id
+	return True
+
+print func()
