@@ -67,11 +67,12 @@ Page({
       title: wx.getStorageSync('mallName')
     })
     wx.request({
-      url: 'https://api.it120.cc/' + app.globalData.subDomain + '/banner/list',
+      url: 'http://localhost:10000/api/' + app.globalData.subDomain + '/banner/list',
       data: {
         key: 'mallName'
       },
       success: function(res) {
+        console.log(res)
         if (res.data.code == 404) {
           wx.showModal({
             title: '提示',
@@ -86,7 +87,7 @@ Page({
       }
     })
     wx.request({
-      url: 'https://api.it120.cc/'+ app.globalData.subDomain +'/shop/goods/category/all',
+      url: 'http://localhost:10000/api/'+ app.globalData.subDomain +'/shop/goods/category/all',
       success: function(res) {
         var categories = [{id:0, name:"全部"}];
         if (res.data.code == 0) {
@@ -111,7 +112,7 @@ Page({
     console.log(categoryId)
     var that = this;
     wx.request({
-      url: 'https://api.it120.cc/'+ app.globalData.subDomain +'/shop/goods/list',
+      url: 'http://localhost:10000/'+ app.globalData.subDomain +'/shop/goods/list',
       data: {
         categoryId: categoryId,
         nameLike: that.data.searchInput
@@ -140,7 +141,7 @@ Page({
   getCoupons: function () {
     var that = this;
     wx.request({
-      url: 'https://api.it120.cc/' + app.globalData.subDomain + '/discounts/coupons',
+      url: 'http://localhost:10000/' + app.globalData.subDomain + '/discounts/coupons',
       data: {
         type: ''
       },
@@ -157,7 +158,7 @@ Page({
   gitCoupon : function (e) {
     var that = this;
     wx.request({
-      url: 'https://api.it120.cc/' + app.globalData.subDomain + '/discounts/fetch',
+      url: 'http://localhost:10000/' + app.globalData.subDomain + '/discounts/fetch',
       data: {
         id: e.currentTarget.dataset.id,
         token: wx.getStorageSync('token')
@@ -226,7 +227,7 @@ Page({
   getNotice: function () {
     var that = this;
     wx.request({
-      url: 'https://api.it120.cc/' + app.globalData.subDomain + '/notice/list',
+      url: 'http://localhost:10000/' + app.globalData.subDomain + '/notice/list',
       data: { pageSize :5},
       success: function (res) {
         if (res.data.code == 0) {
